@@ -7,7 +7,7 @@ This project provides a comparative analysis of three distinct techniques to sol
 
 ## Installation & Usage
 
-'''
+'''bash
 #Clone the repo
 git clone https://github.com/your-username/credit-guard.git
 
