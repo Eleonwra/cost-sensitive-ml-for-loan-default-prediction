@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 #Run the full evaluation pipeline
 python main.py
-```
+
 
 ## Evaluation 
 As the primary objective was to compare 3 different cost-sensitive techniques rather than optimizing individual model performance, a standard 5-Fold Stratified Cross-Validation was used.
