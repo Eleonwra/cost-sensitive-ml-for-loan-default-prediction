@@ -46,7 +46,7 @@ Three methodologies were evaluated to align model behavior with the 1:5 asymmetr
 -	**Logic**: Instead of selecting the most likely class, the model selects the action $i$ that minimizes the Expected Bayes Cost:
   <br/>
   
-  $$R(a_i|x) = \sum_{j} P(\text{class}_j|x) \cdot C(\text{pred}_i, \text{true}_j)$$
+  $$ a^* = \arg\min_{a_i} \sum_{j} P(\text{class}_j|x) \cdot C(\text{pred}_i, \text{true}_j)$$
   
   <br/>
   This ensures that the final prediction is not just the most "probable" outcome, but the one that carries the lowest financial risk for the institution.
