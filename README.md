@@ -24,7 +24,9 @@ As the primary objective was to compare 3 different cost-sensitive techniques ra
 ## Metrics
 -	**Accuracy**
 -	**Total Financial Cost**. This is calculated using a Hadamard product of the model's Confusion Matrix and the predefined Cost Matrix:
-  $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$
+  ```bash
+  Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)
+  ```
  	By multiplying these matrices element-wise, the model is billed for the specific financial impact of its errors. Summing these results provides the final metric used for ranking.
 
 ## Optimization Strategies
@@ -40,7 +42,9 @@ Three methodologies were evaluated to align model behavior with the 1:5 asymmetr
 
 ### Post-Processing: Bayes Risk Minimization
 -	**Logic**: Instead of selecting the most likely class, the model selects the action $i$ that minimizes the Expected Bayes Cost:
-  $$R(a_i|x) = \sum_{j} P(\text{class}_j|x) \cdot C(\text{pred}_i, \text{true}_j)$$
+  ```bash
+  R(a_i|x) = \sum_{j} P(\text{class}_j|x) \cdot C(\text{pred}_i, \text{true}_j)
+  ```
 
   This ensures that the final prediction is not just the most "probable" outcome, but the one that carries the lowest financial risk for the institution.
 -	**Example**: Consider a borrower with a 25% predicted probability of default.
