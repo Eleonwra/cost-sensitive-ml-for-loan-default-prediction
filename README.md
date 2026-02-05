@@ -5,15 +5,16 @@ This project provides a comparative analysis of three distinct techniques to sol
 2.	Algorithm-Level: Cost-Weighting.
 3.	Post-Processing: Bayes Risk Minimization (with Probability Calibration).
 
-Installation & Usage
+## Installation & Usage
 
-# Clone the repo
+```bash
+#Clone the repo
 git clone https://github.com/your-username/credit-guard.git
 
-# Install dependencies
+#Install dependencies
 pip install -r requirements.txt
 
-# Run the full evaluation pipeline
+#Run the full evaluation pipeline
 python main.py
 
 Evaluation 
