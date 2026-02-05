@@ -25,7 +25,7 @@ As the primary objective was to compare 3 different cost-sensitive techniques ra
 ## Metrics
 -	**Accuracy**
 -	**Total Financial Cost**. This is calculated using a Hadamard product of the model's Confusion Matrix and the predefined Cost Matrix:
-  $$Total\ Cost = \sum \left( \begin{bmatrix} TP & FP \\ FN & TN \end{bmatrix} \odot \begin{bmatrix} 0 & 1 \\ 5 & 0 \end{bmatrix} \right)$$
+  $$Total\ Cost = \sum \begin{pmatrix} TP & FP \\ FN & TN \end{pmatrix} \odot \begin{pmatrix} 0 & 1 \\ 5 & 0 \end{pmatrix}$$
  	
   By multiplying these matrices element-wise, the model is billed for the specific financial impact of its errors. Summing these results provides the final metric used for ranking.
 
