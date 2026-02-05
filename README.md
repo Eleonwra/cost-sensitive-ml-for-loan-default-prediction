@@ -7,17 +7,7 @@ This project provides a comparative analysis of three distinct techniques to sol
 
 ## Installation & Usage
 
-```bash
-#Clone the repo
-git clone https://github.com/your-username/credit-guard.git
-
-#Install dependencies
-pip install -r requirements.txt
-
-#Run the full evaluation pipeline
-python main.py
-
-```
+tbd
 
 ## Evaluation 
 As the primary objective was to compare 3 different cost-sensitive techniques rather than optimizing individual model performance, a standard 5-Fold Stratified Cross-Validation was used.
