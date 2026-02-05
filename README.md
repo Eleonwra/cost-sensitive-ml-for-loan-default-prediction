@@ -8,6 +8,16 @@ This project provides a comparative analysis of three distinct techniques to sol
 ## Installation & Usage
 
 tbd
+```bash
+#Clone the repo
+git clone https://github.com/your-username/credit-guard.git
+
+#Install dependencies
+pip install -r requirements.txt
+
+#Run the full evaluation pipeline
+python main.py
+```
 
 ## Evaluation 
 As the primary objective was to compare 3 different cost-sensitive techniques rather than optimizing individual model performance, a standard 5-Fold Stratified Cross-Validation was used.
@@ -15,7 +25,7 @@ As the primary objective was to compare 3 different cost-sensitive techniques ra
 ## Metrics
 -	**Accuracy**
 -	**Total Financial Cost**. This is calculated using a Hadamard product of the model's Confusion Matrix and the predefined Cost Matrix:
-  $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$
+  $$Total\ Cost = \sum \left( \begin{bmatrix} TP & FP \\ FN & TN \end{bmatrix} \odot \begin{bmatrix} 0 & 1 \\ 5 & 0 \end{bmatrix} \right)$$
  	
   By multiplying these matrices element-wise, the model is billed for the specific financial impact of its errors. Summing these results provides the final metric used for ranking.
 
