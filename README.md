@@ -7,7 +7,7 @@ This project provides a comparative analysis of three distinct techniques to sol
 
 ## Installation & Usage
 
-```bash
+'''
 #Clone the repo
 git clone https://github.com/your-username/credit-guard.git
 
@@ -16,26 +16,29 @@ pip install -r requirements.txt
 
 #Run the full evaluation pipeline
 python main.py
-```
+'''
 
-
-Evaluation 
+## Evaluation 
 As the primary objective was to compare 3 different cost-sensitive techniques rather than optimizing individual model performance, a standard 5-Fold Stratified Cross-Validation was used.
-Metrics
+
+## Metrics
 •	Accuracy
 •	Total Financial Cost. This is calculated using a Hadamard product of the model's Confusion Matrix and the predefined Cost Matrix:
 $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$
 By multiplying these matrices element-wise, the model is billed for the specific financial impact of its errors. Summing these results provides the final metric used for ranking.
 
-Optimization Strategies
+## Optimization Strategies
 Three methodologies were evaluated to align model behavior with the 1:5 asymmetric cost ratio (False Positive vs. False Negative).
-Data- Level: Hybrid Resampling
+
+### Data- Level: Hybrid Resampling
 •	Logic: The majority class ("Good") is undersampled by 50%, followed by oversampling the minority class ("Bad") until the 5:1 cost-analogous ratio is achieved.
 •	Example: In a fold with 500 Good/100 Bad samples, the resulting training set is 250 Good/1250 Bad. This forces the model to prioritize the expensive class as the statistical majority.
-Algorithm-Level: Cost-Weighting
+
+### Algorithm-Level: Cost-Weighting
 •	Logic: Financial penalties are injected directly into the model's internal optimization logic. Class_weight of 5 is assigned to "Bad" samples, scaling the error contribution during training.
 •	Example: In a Random Forest, a misclassified "Bad" applicant increases Gini Impurity five times more than a misclassified "Good" applicant. Tree nodes split specifically to isolate high-cost instances.
-Post-Processing: Bayes Risk Minimization
+
+### Post-Processing: Bayes Risk Minimization
 •	Logic: Instead of selecting the most likely class, the model selects the action $i$ that minimizes the Expected Bayes Cost:
 $$R(a_i|x) = \sum_{j} P(\text{class}_j|x) \cdot C(\text{pred}_i, \text{true}_j)$$
 This ensures that the final prediction is not just the most "probable" outcome, but the one that carries the lowest financial risk for the institution.
@@ -46,8 +49,9 @@ o	Decision: The system rejects the application because the risk-adjusted cost of
 •	Calibration: The validity of the Bayes Risk calculation depends entirely on the probabilistic integrity of the model. Many classifiers produce biased probability estimates (overconfident or underconfident). To ensure these values represent true empirical frequencies, Probability Calibration (via Isotonic Regression or Platt Scaling/Sigmoid) is applied. This step transforms raw model scores into reliable risk estimates.
 
 
-Results & Visual Analysis
+## Results & Visual Analysis
 •	Cost Leaderboard: A bar chart comparing the total financial loss across strategies.
-Key Findings
+
+## Key Findings
 •	Cost vs. Accuracy: Optimizing for the lowest financial cost often requires sacrificing global accuracy to ensure high-cost defaults are caught.
 •	Optimization Success: All three cost-sensitive methodologies consistently outperformed the baseline by prioritizing the 5:1 penalty ratio during the decision-making process.
