@@ -51,6 +51,7 @@ Three methodologies were evaluated to align model behavior with the 1:5 asymmetr
   <br/>
   This ensures that the final prediction is not just the most "probable" outcome, but the one that carries the lowest financial risk for the institution.
 
+
 -	**Example**: Consider a borrower with a 25% predicted probability of default.
 1.	Granting the loan carries an expected cost of 1.25 (0.25 x 5 penalty).
 2.	Rejecting the loan carries an expected cost of 0.75 (0.75 x 1 penalty).
