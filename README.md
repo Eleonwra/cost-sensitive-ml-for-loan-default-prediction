@@ -7,7 +7,6 @@ This project provides a comparative analysis of three distinct techniques to sol
 
 ## Installation & Usage
 
-tbd
 ```bash
 #Clone the repo
 git clone https://github.com/your-username/credit-guard.git
@@ -25,7 +24,8 @@ As the primary objective was to compare 3 different cost-sensitive techniques ra
 ## Metrics
 -	**Accuracy**
 -	**Total Financial Cost**. This is calculated using a Hadamard product of the model's Confusion Matrix and the predefined Cost Matrix:
-  $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$ \n By multiplying these matrices element-wise, the model is billed for the specific financial impact of its errors. Summing these results provides the final metric used for ranking.
+  $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$
+ 	By multiplying these matrices element-wise, the model is billed for the specific financial impact of its errors. Summing these results provides the final metric used for ranking.
 
 ## Optimization Strategies
 Three methodologies were evaluated to align model behavior with the 1:5 asymmetric cost ratio (False Positive vs. False Negative).
