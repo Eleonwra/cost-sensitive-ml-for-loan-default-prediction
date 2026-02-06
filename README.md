@@ -17,6 +17,8 @@ pip install -r requirements.txt
 #Run the full evaluation pipeline
 python main.py
 ```
+## **Preprossesing**
+- **Feature Engineering**: Although Random Forest is conceptually capable of handling categorical variables, One-Hot Encoding was applied to ensure architectural consistency across the three model families. This transformation was technically required for the Linear SVC and Gaussian Naive Bayes implementations and facilitated a standardized feature space for the comparative cost-analysis.
 
 ## **Model Selection**
 ### **Generative Family: Gaussian Naive Bayes**
@@ -85,6 +87,7 @@ $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$
 ## Results & Visual Analysis
 -	**Global Cost Leaderboard**: A bar chart with error bars comparing the total financial loss across strategies and classifiers.
 -	**Strategy Performance by Classifier**: A grouped bar chart displaying the financial performance of each specific algorithm.
+
 ## Key Findings
 -	**Cost vs. Accuracy**: Optimizing for the lowest financial cost often requires sacrificing global accuracy to ensure high-cost defaults are caught.
 -	**Optimization Success**: All three cost-sensitive methodologies consistently outperformed the baseline by prioritizing the 5:1 penalty ratio during the decision-making process.
