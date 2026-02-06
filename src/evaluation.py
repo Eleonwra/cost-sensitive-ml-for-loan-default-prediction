@@ -87,7 +87,7 @@ def sampling_evaluate(X, y, classifiers, names, cost_matrix, sampler=None, split
         avg_loss = np.mean(fold_loss[name])
         std_loss = np.std(fold_loss[name])
         avg_acc = np.mean(fold_accuracies[name])
-        final_summary[name] = {"loss": avg_loss, "accuracy": avg_acc, "std": std_loss}
+        final_summary[name] = {"loss": avg_loss, "accuracy": round(avg_acc, 2), "std": round(std_loss,2)}
         print(f"{name} → Average loss: {avg_loss:.2f} | Accuracy: {avg_acc:.2%}")
     return final_summary, fold_matrices
 
@@ -145,7 +145,7 @@ def weights_evaluate(X, y, classifiers, names, cost_matrix, weight_bad=5, weight
         avg_loss = np.mean(fold_loss[name])
         std_loss = np.std(fold_loss[name])
         avg_acc = np.mean(fold_accuracies[name])
-        final_summary[name] = {"loss": avg_loss, "accuracy": avg_acc, "std": std_loss}
+        final_summary[name] = {"loss": avg_loss, "accuracy": round(avg_acc, 2), "std": round(std_loss,2)}
         print(f"{name} → Average loss: {avg_loss:.2f} | Accuracy: {avg_acc:.2%}")
     return final_summary, fold_matrices
 
@@ -216,6 +216,6 @@ def calibration_evaluate(X, y, mapping, clfs, names, cost_matrix, calibrate=None
         avg_loss = np.mean(fold_loss[name])
         std_loss = np.std(fold_loss[name])
         avg_acc = np.mean(fold_accuracies[name])
-        final_summary[name] = {"loss": avg_loss, "accuracy": avg_acc, "std": std_loss}
+        final_summary[name] = {"loss": avg_loss, "accuracy": round(avg_acc, 2), "std": round(std_loss,2)}
         print(f"{name} → Average loss: {avg_loss:.2f} | Accuracy: {avg_acc:.2%}")
     return final_summary, fold_matrices
