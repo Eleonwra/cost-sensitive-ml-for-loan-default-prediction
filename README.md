@@ -23,13 +23,13 @@ As the primary objective was to compare 3 different cost-sensitive techniques ra
 
 ## Metrics
 -	**Accuracy**
--	**Total Financial Cost**. This is calculated using a Hadamard product of the model's Confusion Matrix and the predefined Cost Matrix:
+-	**Total Financial Cost**. The primary metric used for ranking. This is calculated as the **mean cost across all 5 folds** to ensure the result is statistically robust. The cost for each fold is derived using the Hadamard product of the Confusion Matrix and the predefined Cost Matrix:
+
 <br/>
 
 $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$
 
 <br/>
-By multiplying these matrices element-wise, the model is billed for the specific financial impact of its errors. Summing these results provides the final metric used for ranking.
 
 ## Optimization Strategies
 Three methodologies were evaluated to align model behavior with the 1:5 asymmetric cost ratio (False Positive vs. False Negative).
