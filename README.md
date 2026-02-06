@@ -22,14 +22,15 @@ python main.py
 As the primary objective was to compare 3 different cost-sensitive techniques rather than optimizing individual model performance, a standard 5-Fold Stratified Cross-Validation was used.
 
 ## Metrics
--	**Accuracy**
--	**Total Financial Cost**. The primary metric used for ranking. This is calculated as the **mean cost across all 5 folds** to ensure the result is statistically robust. The cost for each fold is derived using the Hadamard product of the Confusion Matrix and the predefined Cost Matrix:
+-	**Total Financial Cost**: The primary metric used for ranking. This is calculated as the **mean cost across all 5 folds** to ensure the result is statistically robust. The cost for each fold is derived using the Hadamard product of the Confusion Matrix and the predefined Cost Matrix:
 
 <br/>
 
 $$Total\ Cost = \sum (Confusion\ Matrix \odot Cost\ Matrix)$$
 
 <br/>
+
+-	**Accuracy**: Used as a secondary diagnostic to monitor the trade-off between general predictive power and risk mitigation.
 
 ## Optimization Strategies
 Three methodologies were evaluated to align model behavior with the 1:5 asymmetric cost ratio (False Positive vs. False Negative).
