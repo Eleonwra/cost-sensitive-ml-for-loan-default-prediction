@@ -85,13 +85,12 @@ def main():
             "Std Loss": results[name]["std"],
             "Mean Acc": results[name]["accuracy"]})
 
-    print("\n--- Final Comparison Table ---")
 
     final_df = pd.DataFrame(final_comparison_data)
     final_df = final_df.sort_values(by="Mean Loss")
 
     print("\n" + "="*70)
-    print("FINAL CROSS-VALIDATION PERFORMANCE LEADERBOARD")
+    print("           FINAL CROSS-VALIDATION PERFORMANCE LEADERBOARD")
     print("="*70)
     print(final_df.to_string(index=False))
 
